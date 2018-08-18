@@ -17,5 +17,5 @@ app.use(express.static('server/public'));
 
 // Start the server
 app.listen(PORT, () => {
-    console.log('Server running on port', PORT);
+    console.log(`Server running on port: ${PORT}`);
 });

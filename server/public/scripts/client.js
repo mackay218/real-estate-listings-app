@@ -1,4 +1,6 @@
-const houseApp = angular.module('houseApp', []);
+console.log('client js');
+
+const houseApp = angular.module('houseApp', ['ngRoute']);
 
 //start config
 houseApp.config(function($routeProvider){
@@ -8,7 +10,7 @@ houseApp.config(function($routeProvider){
         templateUrl: 'views/rentals.html',
         contoller: 'RentalController as rc'
     }).when('/sales', {
-        templateUrl: 'views/sale.html',
+        templateUrl: 'views/sales.html',
         controller: 'SalesController as sc'
     });
 }); //end config

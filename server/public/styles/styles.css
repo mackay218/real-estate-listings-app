@@ -1,0 +1,19 @@
+* { 
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.card{
+    height: 50px;
+    width: 50px;
+}
+
+.cardImg{
+    height: 100%;
+    width: 100%;
+}
