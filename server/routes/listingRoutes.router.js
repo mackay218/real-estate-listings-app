@@ -42,11 +42,19 @@ router.get('/', function(req, res){
 //POST
 router.post('/', function(req, res){
     console.log('in post route');
-
+    const listingToAdd = req.body;
+    console.log(listingToAdd);
     const queryText = `INSERT INTO "listings" ("cost", "sqft", "type", "city", "image_path") 
-                        VALUES ($1, $2, $3, $4 $5);`;
-    pool.query(queryText, [] )                    
-})
+                        VALUES ($1, $2, $3, $4, $5);`;
+    pool.query(queryText, [listingToAdd.cost, listingToAdd.sqft, 
+                           listingToAdd.type.type, listingToAdd.city, 
+                           listingToAdd.image_path.type]).then(() => {
+                               res.sendStatus(201);
+                           }).catch((error) => {
+                                console.log('error in post:', error);
+                                res.sendStatus(500);
+                           });                    
+});
 
 module.exports = router;
 
