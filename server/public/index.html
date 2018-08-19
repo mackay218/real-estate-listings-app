@@ -7,6 +7,8 @@
     <!--font awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Allura|M+PLUS+Rounded+1c" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css" />
     <script src="vendors/angular.min.js"></script>
    <script src="vendors/angular-route.min.js"></script>
@@ -18,9 +20,10 @@
 </head>
 <body ng-app="houseApp">
     <nav>
-        <li><a href="/">Home</a></li>
-        <li><a href="#!/sales">For Sale</a></li>
-        <li><a href="#!/rentals">For Rent</a></li>
+        <li><h5>DM</h5><p>Real Estate</p></li>
+        <li class="pageLink"><a href="/">Home</a></li>
+        <li class="pageLink"><a href="#!/sales">For Sale</a></li>
+        <li class="pageLink"><a href="#!/rentals">For Rent</a></li>
     </nav>
     <ng-view></ng-view>
 </body>

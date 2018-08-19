@@ -1,11 +1,15 @@
-<div class="container" >
+<div class="container forSale">
     <h2>Properties For Sale</h2>
+    <h4>{{sc.listingCount}} listings</h4>
     <div class="listingsContainer">
         <div class="card" ng-repeat="house in sc.salesArr | orderBy: 'id'">
             <div class="confirmBox" ng-hide="{{house.confirm}}">
-                <p>Are you sure?</p>
+                <p class="question" >Delete this listing?</p>
                 <button class="yesBtn" ng-click="sc.deleteListing(house.id)">Yes</button>
                 <button class="noBtn" ng-click="sc.areYouSure(house.id, house.confirm)">No</button>
+            </div>
+            <div class="location">
+                {{house.city}}
             </div>
             <img class="cardImg" ng-src="styles/images/{{house.image_path}}">
             <button class="deleteBtn" ng-click="sc.areYouSure(house.id, house.confirm)"><i class="fas fa-times"></i></button>

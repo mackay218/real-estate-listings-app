@@ -1,7 +1,21 @@
 
-<div class="container" ng-controller="RentalController as rc">
+<div class="container forRent">
     <h2>Rentals</h2>
-    <div class="card" ng-repeat="house in rc.rentalArr">
-        <img class="cardImg" ng-src="styles/images/{{house.image_path}}">
+    <h4>{{rc.listingCount}} listings</h4>
+    <div class="listingsContainer">
+        <div class="card" ng-repeat="house in rc.rentalArr | orderBy: 'id'">
+            <div class="confirmBox" ng-hide="{{house.confirm}}">
+                <p class="question">Delete this listing?</p>
+                <button class="yesBtn" ng-click="rc.deleteListing(house.id)">Yes</button>
+                <button class="noBtn" ng-click="rc.areYouSure(house.id, house.confirm)">No</button>
+            </div>
+            <div class="location">
+                {{house.city}}
+            </div>
+            <img class="cardImg" ng-src="styles/images/{{house.image_path}}">
+            <button class="deleteBtn" ng-click="rc.areYouSure(house.id, house.confirm)"><i class="fas fa-times"></i></button>
+            <p class="price">{{house.cost | currency}}/mo</p>
+            <p class="size">{{house.sqft | number }} sq ft</p>
+        </div>
     </div>
 </div>

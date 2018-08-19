@@ -1,4 +1,4 @@
-<div class="container" ng-controller="HomeController as  hc">
+<div class="container home">
     <h2>List a Property</h2>
     <div class="formContainer">
         <form ng-submit="hc.addListing(hc.propertyToAdd, userForm$valid)"
@@ -32,9 +32,9 @@
                 <label for="#cost">Asking Price</label>
                 <input id="cost" ng-model="hc.propertyToAdd.cost" placeholder="e.g. 250000" type="number" step="0.01" required/>
             </div>
-           
-           
-            <button id="submitBtn" ng-disabled="userForm.$invalid">Submit</button>
+            <div class="formSection buttonSection">
+                <button id="submitBtn" ng-disabled="userForm.$invalid">Submit</button>
+            </div>
         </form>
     </div>
 </div>

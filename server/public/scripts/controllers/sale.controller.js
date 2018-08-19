@@ -17,6 +17,7 @@ houseApp.controller('SalesController', ['$http', function ($http) {
                 }
             }
             //console.log(sc.salesArr);
+            sc.listingCount = sc.salesArr.length;
 
         }).catch(function (error) {
             console.log('error in getSales:', error);
