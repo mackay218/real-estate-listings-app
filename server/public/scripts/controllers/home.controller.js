@@ -16,6 +16,7 @@ houseApp.controller('HomeController', ['$http', function($http){
     //POST route
     hc.addListing = function(listing){
         console.log('listing:', listing);
+
         $http({
             method: 'POST',
             url: '/listings',

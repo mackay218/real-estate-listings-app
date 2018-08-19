@@ -5,17 +5,17 @@
             name="userForm"
             ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }"
             novalidate>
-            <div class="formSection" name="userForm">
+            <div class="formSection">
                 <label for="#type">Listing Type</label>
                 <select id="type" ng-model="hc.propertyToAdd.type" 
-                    ng-options="option.name for option in hc.listingType track by option.value"
+                    ng-options="option.name for option in hc.listingType track by option.type"
                     ng-init="hc.propertyToAdd.type = hc.listingType[0]" required>
                 </select>
             </div>
             <div class="formSection">
                 <label for="#pic">Unit Type</label>
                 <select id="pic" ng-model="hc.propertyToAdd.image_path" type="text" 
-                                ng-options="option.name for option in hc.listingPics track by option.value" 
+                                ng-options="option.name for option in hc.listingPics track by option.type" 
                                 ng-init="hc.propertyToAdd.image_path = hc.listingPics[0]"
                                 required>
                 </select>

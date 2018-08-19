@@ -26,7 +26,7 @@ pool.on('error', (error) => {
 });
 
 //GET
-router.get('/', function(req, res){
+router.get('/', (req, res) =>{
     console.log('in get route');
     const queryText = 'SELECT * FROM "listings";';
 
@@ -40,21 +40,52 @@ router.get('/', function(req, res){
 }); //end get route
 
 //POST
-router.post('/', function(req, res){
+router.post('/', (req, res) => {
     console.log('in post route');
     const listingToAdd = req.body;
     console.log(listingToAdd);
-    const queryText = `INSERT INTO "listings" ("cost", "sqft", "type", "city", "image_path") 
-                        VALUES ($1, $2, $3, $4, $5);`;
+
+    const queryText = `INSERT INTO "listings" ("cost", "sqft", "type", "city", "image_path", "confirm") 
+                        VALUES ($1, $2, $3, $4, $5, $6);`;
     pool.query(queryText, [listingToAdd.cost, listingToAdd.sqft, 
                            listingToAdd.type.type, listingToAdd.city, 
-                           listingToAdd.image_path.type]).then(() => {
+                           listingToAdd.image_path.type, true]).then(() => {
                                res.sendStatus(201);
                            }).catch((error) => {
                                 console.log('error in post:', error);
                                 res.sendStatus(500);
                            });                    
-});
+});//end post route
+
+router.put('/', (req, res) =>{
+    const toUpdate = req.body;
+    console.log(toUpdate);
+
+    const queryText = `UPDATE "listings" SET "confirm"=$1 WHERE "id"=$2;`;
+
+    pool.query(queryText, [toUpdate.houseConfirm, toUpdate.houseId]).then(() =>{
+        res.sendStatus(201);
+    }).catch((error) => {
+        console.log('error in update:', error);
+        res.sendStatus(500);
+    });
+});//end put route
+
+router.delete('/:id', (req, res) =>{
+    console.log('in delete route:', req.params.id);
+
+    let listingToDelete = req.params.id;
+
+    const queryText = `DELETE FROM "listings" WHERE "id"= $1;`;
+
+    pool.query(queryText, [listingToDelete]).then(() => {
+        res.sendStatus(201);
+    }).catch((error) => {
+        console.log('error in delete:', error);
+        res.sendStatus(500);
+    });
+
+});//end delete route
 
 module.exports = router;
 
