@@ -1,12 +1,36 @@
 <div class="container" ng-controller="HomeController as  hc">
     <h2>List a Property</h2>
     <div class="formContainer">
-        <form>
-            <input id="type" type="text"> <!--change to dropdown-->
-            <input id="city" type="text" placeholder="e.g. Minneapolis"/>
-            <input id="cost" type="number"/>
-            <input id="size" type="number"/>
-            <input id="pic" type="text"/> <!--change to dropdown-->
+        <form ng-submit="hc.addListing(hc.propertyToAdd)">
+            <div class="formSection">
+                <label for="#type">Listing Type</label>
+                <select id="type" ng-model="hc.propertyToAdd.type" 
+                    ng-options="option.name for option in hc.listingType track by option.type"
+                    ng-init="hc.propertyToAdd.type = hc.listingType[0]">
+                </select>
+            </div>
+            <div class="formSection">
+                <label for="#city">City</label>
+                <input id="city" ng-model="hc.propertyToAdd.city" type="text" placeholder="e.g. Minneapolis"/>
+            </div> 
+            <div class="formSection">
+                <label for="#cost">Asking Price</label>
+                <input id="cost" ng-model="hc.propertyToAdd.cost" placeholder="e.g. 250000" type="number" />
+            </div>
+            <div class="formSection">
+                <label for="#size">Square Feet</label>
+                <input id="size" ng-model="hc.propertyToAdd.sqft" placeholder="e.g. 2000" type="number" />
+            </div>
+            <div class="formSection">
+                <label for="#pic">Unit Type</label>
+                <select id="pic" ng-model="hc.propertyToAdd.image_path" type="text"
+                    ng-options="option as option.name disable when option.disabled for 
+                                option in hc.listingPics track by option.type"
+                    ng-init="hc.propertyToAdd.image_path = hc.listingPics[0]"
+                    >
+                </select>
+            </div>
+            <button id="submitBtn" ng-disabled="userForm.$invalid">Submit</button>
         </form>
     </div>
 </div>

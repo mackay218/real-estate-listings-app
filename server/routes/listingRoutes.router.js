@@ -39,4 +39,14 @@ router.get('/', function(req, res){
     });
 }); //end get route
 
+//POST
+router.post('/', function(req, res){
+    console.log('in post route');
+
+    const queryText = `INSERT INTO "listings" ("cost", "sqft", "type", "city", "image_path") 
+                        VALUES ($1, $2, $3, $4 $5);`;
+    pool.query(queryText, [] )                    
+})
+
 module.exports = router;
+
