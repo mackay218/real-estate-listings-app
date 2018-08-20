@@ -13,6 +13,7 @@ houseApp.controller('HomeController', ['$http', function($http){
                       { type: 'shiny.jpg', name: 'Rural McMansion'}, 
                       { type: 'stony.jpg', name: 'Suburban Ranch'}];
 
+    /* array for adding search categories NOT IMPLEMENTED ON DOM YET */                  
     hc.searchTypes = [{type: 'city', name: 'city'}, 
                       {type: 'cost', name: 'price'},
                       {type: 'sqft', name: 'sq feet'}];

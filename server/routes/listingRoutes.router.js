@@ -64,7 +64,6 @@ router.get('/sale/lowest', (req, res) => {
     });
 });
 
-
 //POST
 router.post('/', (req, res) => {
     console.log('in post route');
