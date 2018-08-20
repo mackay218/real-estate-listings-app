@@ -12,7 +12,8 @@
                 </div>
                 <div class="formSection">
                     <label for="#pic">Unit Type</label>
-                    <select id="pic" ng-model="hc.propertyToAdd.image_path" type="text" ng-options="option.name for option in hc.listingPics track by option.type"
+                    <select id="pic" ng-model="hc.propertyToAdd.image_path"
+                     type="text" ng-options="option.name for option in hc.listingPics track by option.type"
                         ng-init="hc.propertyToAdd.image_path = hc.listingPics[0]" required>
                     </select>
                 </div>

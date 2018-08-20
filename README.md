@@ -25,7 +25,9 @@ Create table called "listings" in "real_estate" database.
 
 Next Steps
 
+
 -[] Refine search function
+-[] Make cards editable - PUT route
 -[] Individual pages for listings.
 -[] Save Favorites function.
 -[] Host on Heroku.

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
+const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/';
 const Pool = pg.Pool;
 const config = {
     database: 'real_estate',
