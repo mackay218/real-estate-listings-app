@@ -1,23 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const pg = require('pg');
-/* for use later */
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/';
-/*********************/
 
-const Pool = pg.Pool;
-const config = {
-    database: 'real_estate',
-    host: 'localhost',
-    port: 5432,
-    max: 10, // max number of concurrent connections
-    idleTimeoutMillis: 10000 // attempt to connect for 10 seconds
-};
 
 console.log('in router');
 
-const pool = new Pool(config);
+const pool = require('../modules/pool.js');
 
 pool.on('connect', () => {
     console.log('postgresql connected');
