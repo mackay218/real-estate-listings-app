@@ -24,7 +24,7 @@ Create database called "real_estate" in postgress.
 Create table called "listings" in "real_estate" database.
 
 Next Steps
-
+-[] refactor code into more routes and modules files
 
 -[] Refine search function
 -[] Make cards editable - PUT route
