@@ -13,5 +13,5 @@ houseApp.config(function($routeProvider){
     }).when('/sales', {
         templateUrl: 'views/sales.html',
         controller: 'SalesController as sc'
-    });
+    }).otherwise({redirectTo: '/'});
 }); //end config
