@@ -16,14 +16,6 @@ body{
     align-items: center;
 }
 
-form{
-    height: 50vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-
 h1, h2, h4, h6{
     text-align: center;
     margin: 0;
@@ -34,7 +26,7 @@ input{
     height: 25px;
     font-size: 15px;
     color: #fff;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.5);
     border: 2px solid #fff;
     border-radius: 5px;
     box-shadow: 1px -2px rgba(255,255,255,0.5)
@@ -49,7 +41,7 @@ input{
 }
 
 label{
-    text-align: center;
+    text-align: left;
 }
 
 .headingContainer{
@@ -80,26 +72,6 @@ h4{
     width: 30vw;
     margin: 0;
     padding: 0;
-}
-
-.buttonSection{
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-}
-
-#submitBtn{
-    width: 80px;
-    height: 30px;
-    color: #fff;
-    background-color: rgba(255,255,255,0.2);
-    border: 2px solid #fff;
-    border-radius: 5px;
-    box-shadow: 1px -2px rgba(255,255,255,0.5)
-}
-
-#submitBtn:hover{
-    box-shadow: 0 0 5px rgba(255,255,255,1);
 }
 
 nav{
@@ -158,7 +130,7 @@ select{
     height: 25px;
     font-size: 15px;
     color: #fff;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.5);
     border: 2px solid #fff;
     border-radius: 5px;
     box-shadow: 1px -2px rgba(255,255,255,0.5)
@@ -168,12 +140,6 @@ select{
     width: 100vw;
     display: flex;
     flex-direction: column;
-}
-
-.home{
-    background-image: url("images/realEstateBackground.jpg");
-    background-size: cover;
-    height: 95vh;
 }
 
 .forSale{
@@ -202,7 +168,7 @@ select{
 .card{
     position: relative;
     height: 200px;
-    width: 180px;
+    min-width: 180px;
     margin: 10px;
     overflow: hidden;
     display: flex;
@@ -306,8 +272,44 @@ p{
     box-shadow: 0 0 5px rgba(255,255,255,1);
 }
 
+.home{
+    background-image: url("images/realEstateBackground.jpg");
+    background-size: cover;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#addForm{
+    height: 50vh;
+    width: 200px;
+    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+}
+
+#searchForm{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchBox{
+    margin: 20px;
+}
+
 .formContainer{
-    width: 100vw;
+    width: 45vw;
     height: auto;
     background: rgba(0,0,0,0.5);
     color: #fff;
@@ -318,3 +320,24 @@ p{
     flex-direction: column;
 }
 
+.formBtn{
+    width: 80px;
+    height: 30px;
+    color: #fff;
+    background-color: rgba(255,255,255,0.2);
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-shadow: 1px -2px rgba(255,255,255,0.5)
+}
+
+.formBtn:hover{
+    box-shadow: 0 0 5px rgba(255,255,255,1);
+}
+
+.resultsContainer{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden; 
+}

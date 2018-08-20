@@ -13,6 +13,10 @@ houseApp.controller('HomeController', ['$http', function($http){
                       { type: 'shiny.jpg', name: 'Rural McMansion'}, 
                       { type: 'stony.jpg', name: 'Suburban Ranch'}];
 
+    hc.searchTypes = [{type: 'city', name: 'city'}, 
+                      {type: 'cost', name: 'price'},
+                      {type: 'sqft', name: 'sq feet'}];
+
     //POST route
     hc.addListing = function(listing){
         console.log('listing:', listing);
@@ -25,6 +29,22 @@ houseApp.controller('HomeController', ['$http', function($http){
             console.log('listing created');
         }).catch(function(error){
             console.log('error:', error);
+        });
+    };
+
+    /* function to search database*/
+    hc.search = function(searchTerm) {
+        console.log('in search', searchTerm);
+        $http({
+            method: 'POST',
+            url: '/listings/search',
+            data: searchTerm
+        }).then(function(response){
+            hc.searchArr = [];
+            hc.searchArr = response.data;
+            console.log('search results:', hc.searchArr);
+        }).catch(function(error){
+            console.log('error in search:', error);
         });
     };
 

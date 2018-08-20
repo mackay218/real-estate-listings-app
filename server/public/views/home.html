@@ -1,40 +1,55 @@
 <div class="container home">
     <h1>List a Property</h1>
-    <div class="formContainer">
-        <form ng-submit="hc.addListing(hc.propertyToAdd, userForm$valid)"
-            name="userForm"
-            ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }"
-            novalidate>
-            <div class="formSection">
-                <label for="#type">Listing Type</label>
-                <select id="type" ng-model="hc.propertyToAdd.type" 
-                    ng-options="option.name for option in hc.listingType track by option.type"
-                    ng-init="hc.propertyToAdd.type = hc.listingType[0]" required>
-                </select>
+    <div class="contentContainer">
+        <div class="formContainer">
+            <form id="addForm" ng-submit="hc.addListing(hc.propertyToAdd, userForm$valid)" name="userForm" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }"
+                novalidate>
+                <div class="formSection">
+                    <label for="#type">Listing Type</label>
+                    <select id="type" ng-model="hc.propertyToAdd.type" ng-options="option.name for option in hc.listingType track by option.type"
+                        ng-init="hc.propertyToAdd.type = hc.listingType[0]" required>
+                    </select>
+                </div>
+                <div class="formSection">
+                    <label for="#pic">Unit Type</label>
+                    <select id="pic" ng-model="hc.propertyToAdd.image_path" type="text" ng-options="option.name for option in hc.listingPics track by option.type"
+                        ng-init="hc.propertyToAdd.image_path = hc.listingPics[0]" required>
+                    </select>
+                </div>
+                <div class="formSection">
+                    <label for="#size">Square Feet</label>
+                    <input id="size" ng-model="hc.propertyToAdd.sqft" placeholder="e.g. 2000" type="number" step="0.5" required/>
+                </div>
+                <div class="formSection">
+                    <label for="#city">City</label>
+                    <input id="city" ng-model="hc.propertyToAdd.city" type="text" placeholder="e.g. Minneapolis" required/>
+                </div>
+                <div class="formSection">
+                    <label for="#cost">Asking Price</label>
+                    <input id="cost" ng-model="hc.propertyToAdd.cost" placeholder="e.g. 250000" type="number" step="0.01" required/>
+                </div>
+                <div class="formSection">
+                    <button id="submitBtn" class="formBtn" ng-disabled="userForm.$invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="formContainer">
+            <form id="searchForm"  name="searchForm" ng-class="{ 'has-error' : searchForm.name.$invalid && !searchForm.name.$pristine }"
+                novalidate>
+                <label for="searchBox">Search by Price, Square Feet, or City</label>
+                <input id="searchBox" ng-model="hc.searchTerms.term" placeholder="e.g. St.Paul or 5000" />
+                <button id="searchBtn" ng-click="hc.search(hc.searchTerms)"class="formBtn" ng-disabled="searchForm.$invalid">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="resultsContainer">
+        <div class="card" ng-repeat="house in hc.searchArr | orderBy: 'id'">
+            <div class="location">
+                {{house.city}}
             </div>
-            <div class="formSection">
-                <label for="#pic">Unit Type</label>
-                <select id="pic" ng-model="hc.propertyToAdd.image_path" type="text" 
-                                ng-options="option.name for option in hc.listingPics track by option.type" 
-                                ng-init="hc.propertyToAdd.image_path = hc.listingPics[0]"
-                                required>
-                </select>
-            </div>
-             <div class="formSection">
-                <label for="#size">Square Feet</label>
-                <input id="size" ng-model="hc.propertyToAdd.sqft" placeholder="e.g. 2000" type="number" step="0.5" required/>
-            </div>
-            <div class="formSection">
-                <label for="#city">City</label>
-                <input id="city" ng-model="hc.propertyToAdd.city" type="text" placeholder="e.g. Minneapolis" required/>
-            </div> 
-            <div class="formSection">
-                <label for="#cost">Asking Price</label>
-                <input id="cost" ng-model="hc.propertyToAdd.cost" placeholder="e.g. 250000" type="number" step="0.01" required/>
-            </div>
-            <div class="formSection buttonSection">
-                <button id="submitBtn" ng-disabled="userForm.$invalid">Submit</button>
-            </div>
-        </form>
+            <img class="cardImg" ng-src="styles/images/{{house.image_path}}">
+            <p class="price">{{house.cost | currency}}</p>
+            <p class="size">{{house.sqft | number }} sq ft</p>
+        </div>
     </div>
 </div>
