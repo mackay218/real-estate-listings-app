@@ -1,6 +1,21 @@
 <div class="container forSale">
-    <h2>Properties For Sale</h2>
-    <h4>{{sc.listingCount}} listings</h4>
+     <div class="headingContainer">
+        <div class="titleContainer">
+            <h2>For Sale</h2>
+            <h4>{{sc.listingCount}} listings</h4>
+        </div>
+        <div class="cardContainer">
+            <h6>Best Price Property</h6>
+            <div class="card" ng-repeat="house in sc.lowestPrice | orderBy: 'id'">
+                <div class="location">
+                    {{house.city}}
+                </div>
+                <img class="cardImg" ng-src="styles/images/{{house.image_path}}">
+                <p class="price">{{house.cost | currency}}/mo</p>
+                <p class="size">{{house.sqft | number }} sq ft</p>
+            </div>
+        </div>
+    </div>
     <div class="listingsContainer">
         <div class="card" ng-repeat="house in sc.salesArr | orderBy: 'id'">
             <div class="confirmBox" ng-hide="{{house.confirm}}">

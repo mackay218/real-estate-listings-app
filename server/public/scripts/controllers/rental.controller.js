@@ -1,7 +1,8 @@
 houseApp.controller('RentalController', ['$http', function($http){
     const rc = this;
 
-    //GET route
+    //GET routes
+    /* get all listings from database */
     function getRentals() {
         console.log('in getSales');
         $http({
@@ -23,6 +24,23 @@ houseApp.controller('RentalController', ['$http', function($http){
             console.log('error in getSales:', error);
         });
     };//end getSales
+
+    /* get lowest price listing*/
+    function getLowest() {
+        console.log('in getLowest');
+        $http({
+            method: 'GET',
+            url: '/listings/rent/lowest'
+        }).then(function(response){
+            rc.lowestPrice = [];
+            rc.lowestPrice.push(response.data[0]);
+            console.log('lowest price:', rc.lowestPrice);
+        }).catch(function(error){
+            console.log('error in getLowest:', error);
+        });
+    };//end getLowest
+
+    getLowest();
 
     /* function to confirm user deleting card */
     //PUT route

@@ -26,6 +26,7 @@ pool.on('error', (error) => {
 });
 
 //GET
+/* get all listings */
 router.get('/', (req, res) =>{
     console.log('in get route');
     const queryText = 'SELECT * FROM "listings";';
@@ -38,6 +39,31 @@ router.get('/', (req, res) =>{
         res.sendStatus(500);
     });
 }); //end get route
+
+/* get lowest rent */
+router.get('/rent/lowest', (req, res) =>{
+    console.log('in get lowest rent');
+    const queryText = `SELECT * FROM "listings" WHERE "type"='rent' ORDER BY "cost" ASC LIMIT 1;`;
+
+    pool.query(queryText).then((results) => {
+        res.send(results.rows);
+    }).catch((error) => {
+        console.log('error in rent lowest route:', error);
+    });
+});
+
+/*get lowest sale */
+router.get('/sale/lowest', (req, res) => {
+    console.log('in get lowest sale');
+    const queryText = `SELECT * FROM "listings" WHERE "type"='sale' ORDER BY "cost" ASC LIMIT 1;`;
+
+    pool.query(queryText).then((results) => {
+        res.send(results.rows);
+    }).catch((error) => {
+        console.log('error in sale lowest route:', error);
+    });
+});
+
 
 //POST
 router.post('/', (req, res) => {
