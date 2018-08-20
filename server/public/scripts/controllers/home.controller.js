@@ -47,6 +47,7 @@ houseApp.controller('HomeController', ['$http', function($http){
             hc.resetSearch();
         }).catch(function(error){
             console.log('error in search:', error);
+            hc.searchArr = [{city: 'no results', cost: 'no results'}]
         });
     };
 

@@ -11,4 +11,21 @@ Checklist
 -[x] set up controllers for rental and sales views
 -[x] set up index.html and views html files
 -[x] server.js talks to router
--[x] 
+-[x] router gets results back from database
+-[x] results display on DOM
+-[x] search function works
+
+Getting Started
+
+Fork and Clone Repository.
+
+Install node express and postgres. 
+Create database called "real_estate" in postgress.
+Create table called "listings" in "real_estate" database.
+
+Next Steps
+
+-[] Refine search function
+-[] Individual pages for listings.
+-[] Save Favorites function.
+-[] Host on Heroku.
