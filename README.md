@@ -1,5 +1,9 @@
 # real-estate-listings-app
 
+This is an app to resemble a Real Estate website to add new listings and show existing lisitings of properties for rent and for sale.  The listings use a set of default photos. Listings can also be deleted and searched.  
+
+The purpose of this poject is to practice routes and SQL queries to a database using postgres and displaying the results on the DOM via AngularJS. 
+
 
 Checklist
 
