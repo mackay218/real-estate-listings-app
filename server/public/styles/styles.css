@@ -95,6 +95,16 @@ li{
 a{
      color: #fff;
      text-decoration: none;
+     height: 100%;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.link{
+    height: 30px;
+    font-size: 20px;
 }
 
 h5{

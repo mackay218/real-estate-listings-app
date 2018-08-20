@@ -27,6 +27,7 @@ houseApp.controller('HomeController', ['$http', function($http){
             data: listing
         }).then(function(response){
             console.log('listing created');
+            hc.resetAddListing();
         }).catch(function(error){
             console.log('error:', error);
         });
@@ -43,9 +44,27 @@ houseApp.controller('HomeController', ['$http', function($http){
             hc.searchArr = [];
             hc.searchArr = response.data;
             console.log('search results:', hc.searchArr);
+            hc.resetSearch();
         }).catch(function(error){
             console.log('error in search:', error);
         });
     };
+
+    /* functions to reset forms */
+    hc.resetSearch = function(){
+        console.log('in resetSearch');
+        hc.searchTerms.term.$setPristine;
+        hc.searchTerms.term = '';
+    };
+
+    hc.resetAddListing = function(){
+        console.log('in resetAddListing');
+        hc.propertyToAdd.sqft.$setPristine;
+        hc.propertyToAdd.sqft = '';
+        hc.propertyToAdd.city.$setPristine;
+        hc.propertyToAdd.city = '';
+        hc.propertyToAdd.cost.$setPristine;
+        hc.propertyToAdd.cost = '';
+    }
 
 }]);

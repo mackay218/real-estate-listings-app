@@ -34,11 +34,11 @@
             </form>
         </div>
         <div class="formContainer">
-            <form id="searchForm"  name="searchForm" ng-class="{ 'has-error' : searchForm.name.$invalid && !searchForm.name.$pristine }"
+            <form id="searchForm" ng-submit="hc.search(hc.searchTerms, userForm$valid)" name="searchForm" ng-class="{ 'has-error' : searchForm.name.$invalid && !searchForm.name.$pristine }"
                 novalidate>
                 <label for="searchBox">Search by Price, Square Feet, or City</label>
                 <input id="searchBox" ng-model="hc.searchTerms.term" placeholder="e.g. St.Paul or 5000" />
-                <button id="searchBtn" ng-click="hc.search(hc.searchTerms)"class="formBtn" ng-disabled="searchForm.$invalid">Search</button>
+                <button id="searchBtn" class="formBtn" ng-disabled="searchForm.$invalid">Search</button>
             </form>
         </div>
     </div>
