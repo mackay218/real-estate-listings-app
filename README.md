@@ -4,6 +4,7 @@ This is an app to resemble a Real Estate website to add new listings and show ex
 
 The purpose of this poject is to practice routes and SQL queries to a database using postgres and displaying the results on the DOM via AngularJS. 
 
+hosted at https://floating-stream-93118.herokuapp.com/#!/
 
 Checklist
 
@@ -34,4 +35,4 @@ Next Steps
 -[] Make cards editable - PUT route
 -[] Individual pages for listings.
 -[] Save Favorites function.
--[] Host on Heroku.
+
